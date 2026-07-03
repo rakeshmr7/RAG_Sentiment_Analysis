@@ -90,6 +90,14 @@ async def chat_interaction(request: ChatRequest):
             status_code=500, 
             detail=f"An error occurred while processing the request: {str(e)}"
         )
+    
+@app.get("/")
+async def root():
+    return {
+        "message": "AI Sentiment Routing API is running",
+        "health": "/api/health",
+        "docs": "/docs"
+    }
 
 # Main entry point for local execution
 if __name__ == "__main__":
